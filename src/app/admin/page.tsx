@@ -5,7 +5,7 @@ import {
   CheckCircle2,
   GraduationCap,
 } from "lucide-react"
-import { AcademicCharts } from "@/components/charts/academic-charts"
+import { AdminAnalyticsSummary } from "@/components/charts/admin-analytics-summary"
 import { StudentManagement } from "@/components/admin/student-management"
 import { StatCard } from "@/components/cards/stat-card"
 import { PortalShell } from "@/components/layout/portal-shell"
@@ -65,7 +65,7 @@ export default function AdminPage() {
         </section>
 
         <section id="analytics">
-          <AcademicCharts gpaTrend={gpaTrend} results={classFirstSemesterResults} />
+          <AdminAnalyticsSummary gpaTrend={gpaTrend} results={classFirstSemesterResults} />
         </section>
 
         <StudentManagement initialStudents={classStudents} />
