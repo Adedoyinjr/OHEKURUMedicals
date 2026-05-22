@@ -60,7 +60,6 @@ export function AdminLoginForm() {
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               autoComplete="username"
-              placeholder="OHEKURUNMEDICALS"
               required
             />
           </div>
