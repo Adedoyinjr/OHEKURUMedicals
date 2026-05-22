@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { BrainCircuit, Loader2, LogIn } from "lucide-react"
+import { BrainCircuit, Eye, EyeOff, Loader2, LogIn } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -13,6 +13,7 @@ export function LoginForm() {
   const router = useRouter()
   const [matricNo, setMatricNo] = useState("")
   const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
 
@@ -61,22 +62,36 @@ export function LoginForm() {
               value={matricNo}
               onChange={(event) => setMatricNo(normalizeMatricNo(event.target.value))}
               autoComplete="username"
-              placeholder="UG25/OHEKURU/1001"
               required
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              autoComplete="current-password"
-              placeholder="Default password is your matric number"
-              required
-            />
+            <div className="relative">
+              <Input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                autoComplete="current-password"
+                className="pr-10"
+                required
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 grid h-10 w-10 place-items-center text-muted-foreground hover:text-foreground"
+                onClick={() => setShowPassword((current) => !current)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                title={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? (
+                  <EyeOff className="h-4 w-4" aria-hidden="true" />
+                ) : (
+                  <Eye className="h-4 w-4" aria-hidden="true" />
+                )}
+              </button>
+            </div>
           </div>
 
           {error ? (
