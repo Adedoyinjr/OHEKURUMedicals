@@ -46,7 +46,7 @@ const config: Config = {
         sm: "4px",
       },
       boxShadow: {
-        soft: "0 20px 45px -30px rgba(15, 23, 42, 0.35)",
+        soft: "0 20px 45px -30px hsl(var(--shadow) / 0.35)",
       },
     },
   },

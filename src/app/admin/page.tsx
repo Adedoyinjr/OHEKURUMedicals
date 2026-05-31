@@ -32,8 +32,8 @@ export default function AdminPage() {
       title="Academic Operations"
       subtitle="Results, GPA analytics, AI reports, and student records."
     >
-      <div className="space-y-6">
-        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="space-y-4 sm:space-y-6">
+        <section className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
           <StatCard
             title="Total Students"
             value={String(classStudents.length)}
@@ -70,15 +70,15 @@ export default function AdminPage() {
 
         <StudentManagement initialStudents={classStudents} />
 
-        <section className="grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+        <section className="grid gap-3 sm:gap-4 xl:grid-cols-[0.9fr_1.1fr]">
           <Card id="ai-reports">
             <CardHeader>
               <CardTitle>AI Reports</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {classStudents.map((student, index) => (
-                <div key={student.matricNo} className="rounded-lg border p-4">
-                  <div className="flex items-center justify-between gap-3">
+                <div key={student.matricNo} className="rounded-lg border p-3 sm:p-4">
+                  <div className="flex items-start justify-between gap-3 sm:items-center">
                     <p className="font-semibold">{student.fullName}</p>
                     <Badge variant={index === 0 ? "default" : "accent"}>Ready</Badge>
                   </div>
@@ -92,10 +92,10 @@ export default function AdminPage() {
           </Card>
         </section>
 
-        <section id="courses" className="grid gap-4 lg:grid-cols-4">
+        <section id="courses" className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {departmentPerformance.map((department) => (
             <Card key={department.label}>
-              <CardContent className="p-5">
+              <CardContent className="p-4 sm:p-5">
                 <p className="text-sm font-medium text-muted-foreground">{department.label}</p>
                 <p className="mt-3 text-3xl font-bold">
                   {department.label.includes("Students") ||
@@ -109,8 +109,8 @@ export default function AdminPage() {
           ))}
         </section>
 
-        <section id="settings" className="rounded-lg border bg-card p-5">
-          <div className="flex items-center gap-3">
+        <section id="settings" className="rounded-lg border bg-card p-4 sm:p-5">
+          <div className="flex items-start gap-3 sm:items-center">
             <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/10 text-accent">
               <BrainCircuit className="h-5 w-5" aria-hidden="true" />
             </span>

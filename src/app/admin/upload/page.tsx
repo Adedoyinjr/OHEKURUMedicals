@@ -9,7 +9,7 @@ export default function UploadResultsPage() {
       title="Result Upload"
       subtitle="Excel columns: MATRIC NO, COURSE CODE, SCORE."
     >
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         <ResultUploadForm />
 
         <Card>
@@ -18,7 +18,7 @@ export default function UploadResultsPage() {
           </CardHeader>
           <CardContent>
             <div className="overflow-auto">
-              <table className="w-full min-w-[520px] text-sm">
+              <table className="w-full min-w-[560px] text-sm">
                 <thead className="border-b text-left text-xs uppercase text-muted-foreground">
                   <tr>
                     <th className="px-4 py-3">MATRIC NO</th>

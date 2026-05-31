@@ -52,7 +52,11 @@ export function ResultUploadForm() {
         <CardTitle>Upload Results</CardTitle>
       </CardHeader>
       <CardContent>
-        <form ref={formRef} className="grid gap-4 lg:grid-cols-4" onSubmit={uploadResults}>
+        <form
+          ref={formRef}
+          className="grid gap-3 sm:gap-4 lg:grid-cols-4"
+          onSubmit={uploadResults}
+        >
           <div className="space-y-2 lg:col-span-2">
             <Label htmlFor="file">Excel file</Label>
             <Input id="file" name="file" type="file" accept=".xlsx,.xls,.csv" required />
@@ -82,7 +86,7 @@ export function ResultUploadForm() {
           </label>
 
           <div className="lg:col-span-2 lg:flex lg:justify-end">
-            <Button type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading} className="w-full lg:w-auto">
               {loading ? (
                 <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
               ) : (

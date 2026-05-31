@@ -1,12 +1,14 @@
 "use client"
 
 import { useRouter } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 type LogoutButtonProps = {
   role: "student" | "admin"
+  className?: string
 }
 
-export function LogoutButton({ role }: LogoutButtonProps) {
+export function LogoutButton({ role, className }: LogoutButtonProps) {
   const router = useRouter()
 
   async function logout() {
@@ -21,7 +23,10 @@ export function LogoutButton({ role }: LogoutButtonProps) {
     <button
       type="button"
       onClick={logout}
-      className="inline-flex h-10 items-center justify-center rounded-md border bg-card px-4 text-sm font-semibold hover:bg-muted"
+      className={cn(
+        "inline-flex h-10 items-center justify-center rounded-md border bg-card px-4 text-sm font-semibold hover:bg-muted",
+        className,
+      )}
     >
       Log out
     </button>

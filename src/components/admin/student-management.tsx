@@ -120,7 +120,7 @@ export function StudentManagement({ initialStudents }: StudentManagementProps) {
   }
 
   return (
-    <section id="students" className="grid gap-4 xl:grid-cols-[0.85fr_1.35fr]">
+    <section id="students" className="grid gap-3 sm:gap-4 xl:grid-cols-[0.85fr_1.35fr]">
       <Card>
         <CardHeader>
           <div className="flex items-center gap-3">
@@ -131,7 +131,7 @@ export function StudentManagement({ initialStudents }: StudentManagementProps) {
           </div>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4" onSubmit={registerStudent}>
+          <form className="space-y-3 sm:space-y-4" onSubmit={registerStudent}>
             <div className="space-y-2">
               <Label htmlFor="newFullName">Full name</Label>
               <Input id="newFullName" name="fullName" placeholder="Student full name" />
@@ -146,7 +146,7 @@ export function StudentManagement({ initialStudents }: StudentManagementProps) {
               />
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="newDepartment">Department</Label>
                 <Input
@@ -181,7 +181,7 @@ export function StudentManagement({ initialStudents }: StudentManagementProps) {
           <CardTitle>Students</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
+          <Table className="min-w-[720px]">
             <TableHeader>
               <TableRow>
                 <TableHead>Name</TableHead>
@@ -196,7 +196,7 @@ export function StudentManagement({ initialStudents }: StudentManagementProps) {
               {students.map((student) => (
                 <TableRow key={student.matricNo}>
                   <TableCell className="font-semibold">{student.fullName}</TableCell>
-                  <TableCell>{student.matricNo}</TableCell>
+                  <TableCell className="font-medium">{student.matricNo}</TableCell>
                   <TableCell>{student.firstSemester.totalScore || "-"}</TableCell>
                   <TableCell>
                     <Badge

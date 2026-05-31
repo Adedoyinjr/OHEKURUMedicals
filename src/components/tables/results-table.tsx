@@ -24,7 +24,7 @@ function gradeTone(grade: string) {
 
 export function ResultsTable({ results }: ResultsTableProps) {
   return (
-    <Table>
+    <Table className="min-w-[640px]">
       <TableHeader>
         <TableRow>
           <TableHead>Assessment</TableHead>

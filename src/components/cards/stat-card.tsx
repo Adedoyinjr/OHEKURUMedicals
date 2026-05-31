@@ -25,13 +25,15 @@ export function StatCard({
 }: StatCardProps) {
   return (
     <Card>
-      <CardContent className="flex min-h-36 items-start justify-between gap-4 p-5">
-        <div>
+      <CardContent className="flex min-h-28 items-start justify-between gap-3 p-4 sm:min-h-36 sm:gap-4 sm:p-5">
+        <div className="min-w-0">
           <p className="text-sm font-medium text-muted-foreground">{title}</p>
-          <p className="mt-3 text-3xl font-bold tracking-normal">{value}</p>
+          <p className="mt-2 text-2xl font-bold tracking-normal sm:mt-3 sm:text-3xl">
+            {value}
+          </p>
           <p className="mt-2 text-sm text-muted-foreground">{note}</p>
         </div>
-        <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg ${tones[tone]}`}>
+        <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg sm:h-11 sm:w-11 ${tones[tone]}`}>
           <Icon className="h-5 w-5" aria-hidden="true" />
         </span>
       </CardContent>

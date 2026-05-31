@@ -152,14 +152,14 @@ export function StudentBioDataForm({ student }: StudentBioDataFormProps) {
   }
 
   return (
-    <section className="grid gap-4 xl:grid-cols-[0.75fr_1.25fr]">
+    <section className="grid gap-3 sm:gap-4 xl:grid-cols-[0.75fr_1.25fr]">
       <Card>
         <CardHeader>
           <CardTitle>Profile Photo</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center gap-4">
-            <div className="grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-lg border bg-primary/10 text-2xl font-black text-primary">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="grid h-20 w-20 shrink-0 place-items-center overflow-hidden rounded-lg border bg-primary/10 text-xl font-black text-primary sm:h-24 sm:w-24 sm:text-2xl">
               {photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -172,8 +172,8 @@ export function StudentBioDataForm({ student }: StudentBioDataFormProps) {
               )}
             </div>
             <div className="min-w-0">
-              <p className="font-semibold">{student.fullName}</p>
-              <p className="text-sm text-muted-foreground">{student.matricNo}</p>
+              <p className="font-semibold leading-tight">{student.fullName}</p>
+              <p className="break-words text-sm text-muted-foreground">{student.matricNo}</p>
             </div>
           </div>
 
@@ -194,7 +194,7 @@ export function StudentBioDataForm({ student }: StudentBioDataFormProps) {
           <CardTitle>Bio-data Form</CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="grid gap-4 md:grid-cols-2" onSubmit={saveBioData}>
+          <form className="grid gap-3 sm:gap-4 md:grid-cols-2" onSubmit={saveBioData}>
             <div className="space-y-2">
               <Label htmlFor="studentName">Full name</Label>
               <Input
@@ -304,7 +304,7 @@ export function StudentBioDataForm({ student }: StudentBioDataFormProps) {
                 PDF, JPG, or PNG. Maximum size: 500 KB.
               </p>
               {bioData.oLevelDocument ? (
-                <p className="flex items-center gap-2 rounded-md border bg-primary/5 px-3 py-2 text-sm font-medium text-primary">
+                <p className="flex items-start gap-2 rounded-md border bg-primary/5 px-3 py-2 text-sm font-medium text-primary sm:items-center">
                   <FileCheck2 className="h-4 w-4" aria-hidden="true" />
                   {bioData.oLevelDocument.name} ({formatFileSize(bioData.oLevelDocument.size)})
                 </p>
@@ -316,11 +316,11 @@ export function StudentBioDataForm({ student }: StudentBioDataFormProps) {
               ) : null}
             </div>
 
-            <div className="flex items-center justify-between gap-3 md:col-span-2">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between md:col-span-2">
               <p className="text-sm text-muted-foreground">
                 {saved ? "Bio-data saved on this device." : "Complete and save your details."}
               </p>
-              <Button type="submit">
+              <Button type="submit" className="w-full sm:w-auto">
                 {saved ? (
                   <Save className="h-4 w-4" aria-hidden="true" />
                 ) : (

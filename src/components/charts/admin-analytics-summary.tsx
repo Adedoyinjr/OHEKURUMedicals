@@ -19,10 +19,10 @@ export function AdminAnalyticsSummary({ gpaTrend, results }: AdminAnalyticsSumma
   const passPercent = Math.round((passCount / totalCount) * 100)
 
   return (
-    <div className="grid gap-4 xl:grid-cols-3">
-      <div className="rounded-lg border bg-card p-5">
+    <div className="grid gap-3 sm:gap-4 xl:grid-cols-3">
+      <div className="rounded-lg border bg-card p-4 sm:p-5">
         <h2 className="text-base font-semibold">GPA Trend</h2>
-        <div className="mt-6 flex h-56 items-end gap-3">
+        <div className="mt-5 flex h-48 items-end gap-2 sm:mt-6 sm:h-56 sm:gap-3">
           {gpaTrend.map((point) => (
             <div key={point.label} className="flex flex-1 flex-col items-center gap-2">
               <div className="flex h-40 w-full items-end rounded-md bg-muted">
@@ -40,9 +40,9 @@ export function AdminAnalyticsSummary({ gpaTrend, results }: AdminAnalyticsSumma
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card p-5">
+      <div className="rounded-lg border bg-card p-4 sm:p-5">
         <h2 className="text-base font-semibold">Semester Performance</h2>
-        <div className="mt-6 space-y-4">
+        <div className="mt-5 space-y-3 sm:mt-6 sm:space-y-4">
           {results.slice(0, 6).map((result) => (
             <div key={result.courseCode} className="space-y-2">
               <div className="flex items-center justify-between gap-3 text-sm">
@@ -60,17 +60,17 @@ export function AdminAnalyticsSummary({ gpaTrend, results }: AdminAnalyticsSumma
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card p-5">
+      <div className="rounded-lg border bg-card p-4 sm:p-5">
         <h2 className="text-base font-semibold">Pass/Fail Ratio</h2>
-        <div className="mt-6 grid place-items-center gap-5">
+        <div className="mt-5 grid place-items-center gap-4 sm:mt-6 sm:gap-5">
           <div
-            className="grid h-40 w-40 place-items-center rounded-full"
+            className="grid h-36 w-36 place-items-center rounded-full sm:h-40 sm:w-40"
             style={{
               background: `conic-gradient(hsl(var(--primary)) ${passPercent}%, hsl(var(--destructive)) 0)`,
             }}
           >
-            <div className="grid h-28 w-28 place-items-center rounded-full bg-card">
-              <span className="text-3xl font-black">{passPercent}%</span>
+            <div className="grid h-24 w-24 place-items-center rounded-full bg-card sm:h-28 sm:w-28">
+              <span className="text-2xl font-black sm:text-3xl">{passPercent}%</span>
             </div>
           </div>
           <div className="grid w-full grid-cols-2 gap-3 text-sm">
