@@ -5,9 +5,11 @@ import {
   BookOpenCheck,
   BrainCircuit,
   LayoutDashboard,
+  Menu,
   Settings,
   Upload,
   Users,
+  X,
 } from "lucide-react"
 import { LogoutButton } from "@/components/auth/logout-button"
 import { ThemeToggle } from "@/components/theme/theme-toggle"
@@ -83,17 +85,54 @@ export function PortalShell({ role, title, subtitle, children }: PortalShellProp
 
       <div className="min-w-0 lg:pl-72">
         <header className="sticky top-0 z-10 border-b bg-background/95 px-3 py-3 backdrop-blur sm:px-4 md:px-8">
-          <div className="mb-3 flex items-center gap-3 lg:hidden">
+          <div className="mb-3 flex items-start justify-between gap-3 lg:hidden">
             <Link
               href="/"
               className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground"
             >
               OH
             </Link>
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-bold leading-tight">{schoolName}</p>
               <p className="text-xs font-medium text-muted-foreground">AI Academic Portal</p>
             </div>
+            <details className="group relative shrink-0">
+              <summary className="relative grid h-10 w-10 list-none place-items-center rounded-md border bg-card text-muted-foreground transition-colors hover:bg-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
+                <Menu
+                  className="h-5 w-5 transition-all duration-200 group-open:scale-75 group-open:opacity-0"
+                  aria-hidden="true"
+                />
+                <X
+                  className="pointer-events-none absolute h-5 w-5 scale-75 opacity-0 transition-all duration-200 group-open:scale-100 group-open:opacity-100"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Toggle menu</span>
+              </summary>
+              <div className="pointer-events-none absolute right-0 top-11 z-30 w-64 origin-top-right scale-95 rounded-lg border bg-card p-2 opacity-0 shadow-soft transition duration-200 ease-out group-open:pointer-events-auto group-open:scale-100 group-open:opacity-100">
+                <div className="mb-2 flex items-center justify-between gap-2 px-1">
+                  <p className="text-xs font-semibold uppercase text-muted-foreground">
+                    Portal Menu
+                  </p>
+                  <ThemeToggle className="h-8 w-8 px-0" />
+                </div>
+                <nav className="space-y-1">
+                  {navItems.map((item, index) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "flex h-10 items-center gap-3 rounded-md border px-3 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground",
+                        index === 0 && "border-primary/30 bg-primary/10 text-primary",
+                      )}
+                    >
+                      <item.icon className="h-4 w-4" aria-hidden="true" />
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+                <LogoutButton role={role} className="mt-2 w-full" />
+              </div>
+            </details>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -106,27 +145,11 @@ export function PortalShell({ role, title, subtitle, children }: PortalShellProp
                 {subtitle}
               </p>
             </div>
-            <div className="flex w-full items-center gap-2 sm:w-auto">
+            <div className="hidden items-center gap-2 lg:flex">
               <ThemeToggle className="shrink-0" />
-              <LogoutButton role={role} className="flex-1 sm:flex-none" />
+              <LogoutButton role={role} />
             </div>
           </div>
-
-          <nav className="-mx-3 mt-3 flex gap-2 overflow-x-auto px-3 pb-1 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
-            {navItems.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "inline-flex h-10 shrink-0 items-center gap-2 rounded-md border bg-card px-3 text-xs font-semibold text-muted-foreground",
-                  index === 0 && "border-primary/30 bg-primary/10 text-primary",
-                )}
-              >
-                <item.icon className="h-4 w-4" aria-hidden="true" />
-                {item.label}
-              </Link>
-            ))}
-          </nav>
         </header>
 
         <main className="px-3 py-4 sm:px-4 md:px-8 md:py-6">{children}</main>

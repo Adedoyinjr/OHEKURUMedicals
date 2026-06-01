@@ -146,7 +146,7 @@ export default function StudentPage() {
         </section>
 
         <section id="results" className="grid gap-3 sm:gap-4 xl:grid-cols-[1.5fr_0.8fr]">
-          <Card>
+          <Card className="min-w-0">
             <CardHeader>
               <CardTitle>First Semester Result</CardTitle>
             </CardHeader>
@@ -155,20 +155,20 @@ export default function StudentPage() {
             </CardContent>
           </Card>
 
-          <Card id="ai-feedback">
+          <Card id="ai-feedback" className="min-w-0">
             <CardHeader>
               <CardTitle>AI Feedback</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm leading-6 text-muted-foreground">
+            <CardContent className="space-y-3 sm:space-y-4">
+              <p className="text-sm leading-7 text-muted-foreground sm:leading-6">
                 {student.fullName} has a first semester total score of{" "}
                 {student.firstSemester.totalScore} and GPA of{" "}
                 {student.firstSemester.gpa.toFixed(2)}. The second semester result is
                 still awaiting publication.
               </p>
-              <div className="rounded-lg border bg-muted/60 p-3 sm:p-4">
+              <div className="rounded-lg border bg-muted/60 p-3.5 sm:p-4">
                 <p className="text-sm font-semibold">Recommended focus</p>
-                <p className="mt-2 text-sm text-muted-foreground">
+                <p className="mt-2 text-sm leading-7 text-muted-foreground sm:leading-6">
                   Maintain revision consistency while awaiting second semester results.
                   Extra practice on Paper 2 can lift the next GPA.
                 </p>

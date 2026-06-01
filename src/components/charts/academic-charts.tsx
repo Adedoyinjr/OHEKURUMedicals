@@ -186,24 +186,24 @@ export function AcademicCharts({ gpaTrend, results }: AcademicChartsProps) {
   }
 
   return (
-    <div className="grid gap-3 sm:gap-4 xl:grid-cols-3">
-      <div className="rounded-lg border bg-card p-4 sm:p-5">
+    <div className="grid gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="min-w-0 overflow-hidden rounded-lg border bg-card p-4 sm:p-5">
         <h2 className="text-base font-semibold">GPA Trend</h2>
-        <div className="mt-4 h-56 sm:h-64">
+        <div className="mt-4 h-48 w-full sm:h-56 md:h-64">
           <Line data={lineData} options={lineOptions} />
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card p-4 sm:p-5">
+      <div className="min-w-0 overflow-hidden rounded-lg border bg-card p-4 sm:p-5">
         <h2 className="text-base font-semibold">Semester Performance</h2>
-        <div className="mt-4 h-56 sm:h-64">
+        <div className="mt-4 h-48 w-full sm:h-56 md:h-64">
           <Bar data={barData} options={barOptions} />
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card p-4 sm:p-5">
+      <div className="min-w-0 overflow-hidden rounded-lg border bg-card p-4 sm:p-5 md:col-span-2 xl:col-span-1">
         <h2 className="text-base font-semibold">Pass/Fail Ratio</h2>
-        <div className="mt-4 h-56 sm:h-64">
+        <div className="mt-4 h-48 w-full sm:h-56 md:h-64">
           <Doughnut data={doughnutData} options={doughnutOptions} />
         </div>
       </div>
