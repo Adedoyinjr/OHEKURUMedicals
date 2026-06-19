@@ -176,45 +176,77 @@ export function StudentManagement({ initialStudents }: StudentManagementProps) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Students</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Matric No</TableHead>
-                <TableHead>Total</TableHead>
-                <TableHead>Grade</TableHead>
-                <TableHead>GPA</TableHead>
-                <TableHead>2nd Sem</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
+        <Card>
+          <CardHeader>
+            <CardTitle>Students</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3 sm:hidden">
               {students.map((student) => (
-                <TableRow key={student.matricNo}>
-                  <TableCell className="font-semibold">{student.fullName}</TableCell>
-                  <TableCell className="font-medium">{student.matricNo}</TableCell>
-                  <TableCell>{student.firstSemester.totalScore || "-"}</TableCell>
-                  <TableCell>
+                <article key={student.matricNo} className="rounded-lg border bg-card p-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-sm font-semibold">{student.fullName}</p>
                     <Badge
                       variant={student.firstSemester.grade === "A" ? "default" : "secondary"}
                     >
                       {student.firstSemester.grade}
                     </Badge>
-                  </TableCell>
-                  <TableCell>{student.firstSemester.gpa.toFixed(2)}</TableCell>
-                  <TableCell>
-                    <Badge variant="outline">{student.secondSemesterStatus}</Badge>
-                  </TableCell>
-                </TableRow>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground">{student.matricNo}</p>
+                  <div className="mt-3 grid grid-cols-3 gap-2 text-sm">
+                    <div className="rounded-md border px-2 py-1.5">
+                      <p className="text-[11px] font-semibold uppercase text-muted-foreground">Total</p>
+                      <p className="mt-0.5 font-semibold">{student.firstSemester.totalScore || "-"}</p>
+                    </div>
+                    <div className="rounded-md border px-2 py-1.5">
+                      <p className="text-[11px] font-semibold uppercase text-muted-foreground">GPA</p>
+                      <p className="mt-0.5 font-semibold">{student.firstSemester.gpa.toFixed(2)}</p>
+                    </div>
+                    <div className="rounded-md border px-2 py-1.5">
+                      <p className="text-[11px] font-semibold uppercase text-muted-foreground">2nd Sem</p>
+                      <p className="mt-0.5 font-semibold">{student.secondSemesterStatus}</p>
+                    </div>
+                  </div>
+                </article>
               ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+            </div>
+
+            <div className="hidden sm:block">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Matric No</TableHead>
+                    <TableHead>Total</TableHead>
+                    <TableHead>Grade</TableHead>
+                    <TableHead>GPA</TableHead>
+                    <TableHead>2nd Sem</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {students.map((student) => (
+                    <TableRow key={student.matricNo}>
+                      <TableCell className="font-semibold">{student.fullName}</TableCell>
+                      <TableCell className="font-medium">{student.matricNo}</TableCell>
+                      <TableCell>{student.firstSemester.totalScore || "-"}</TableCell>
+                      <TableCell>
+                        <Badge
+                          variant={student.firstSemester.grade === "A" ? "default" : "secondary"}
+                        >
+                          {student.firstSemester.grade}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>{student.firstSemester.gpa.toFixed(2)}</TableCell>
+                      <TableCell>
+                        <Badge variant="outline">{student.secondSemesterStatus}</Badge>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </CardContent>
+        </Card>
     </section>
   )
 }
