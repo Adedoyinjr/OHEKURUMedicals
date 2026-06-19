@@ -48,7 +48,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
       </div>
 
       <div className="hidden sm:block">
-        <Table className="min-w-[640px]">
+        <Table>
           <TableHeader>
             <TableRow>
               <TableHead>Assessment</TableHead>
@@ -62,7 +62,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
             {results.map((result) => (
               <TableRow key={result.courseCode}>
                 <TableCell className="font-semibold">{result.courseCode}</TableCell>
-                <TableCell className="min-w-56 text-muted-foreground">{result.title}</TableCell>
+                <TableCell className="text-muted-foreground">{result.title}</TableCell>
                 <TableCell>{result.score}</TableCell>
                 <TableCell>
                   <Badge variant={gradeTone(result.grade)}>{result.grade || "Recorded"}</Badge>

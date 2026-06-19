@@ -181,7 +181,7 @@ export function StudentManagement({ initialStudents }: StudentManagementProps) {
           <CardTitle>Students</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table className="min-w-[720px]">
+          <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Name</TableHead>

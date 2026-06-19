@@ -18,7 +18,7 @@ export default function UploadResultsPage() {
           </CardHeader>
           <CardContent>
             <div className="overflow-auto">
-              <table className="w-full min-w-[560px] text-sm">
+              <table className="w-full text-sm">
                 <thead className="border-b text-left text-xs uppercase text-muted-foreground">
                   <tr>
                     <th className="px-4 py-3">MATRIC NO</th>
